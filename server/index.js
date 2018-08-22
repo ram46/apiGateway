@@ -20,7 +20,8 @@ app.get('/monitor', monitor);
 + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 
 function monitor(req,res) {
-  request('http://localhost:9001/getMicroservices', (error, response, body) => {
+  //request('http://localhost:9001/getMicroservices', (error, response, body) => {
+  request('https://brown-serviceregistry.herokuapp.com/getMicroservices', (error, response, body) => {
     if (error) res.send('Error while getting microservices')
     else res.send(body)
   })
