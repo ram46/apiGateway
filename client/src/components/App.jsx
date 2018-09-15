@@ -59,7 +59,7 @@ class App extends React.Component {
 
     return (<div>
       <div id="content">
-        <h1> api gateway </h1>
+        <h1> Brown </h1>
         {button}
         <br/>
         {home}
