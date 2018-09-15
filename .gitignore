@@ -1,6 +1,6 @@
 
-nginx/ele-one-brown.crt
-nginx/ele-one-brown.key
+nginx/ele-one-brown.com.crt
+nginx/ele-one-brown.com.key
 
 client/dist/bundle.js
 logs
