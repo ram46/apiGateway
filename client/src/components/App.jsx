@@ -54,7 +54,7 @@ class App extends React.Component {
 
     if (this.state.isLoggedIn) {
       button = <Logout handleLogoutClick={this.handleLogoutClick} />
-      home = <div>  <iframe src="https://ele-one-brown.com:7777/crud/" scrolling="no" sandbox="allow-same-origin allow-scripts allow-forms" > </iframe> <br/> <br/><br/> <br/><br/> <br/> <iframe src="https://ele-one-brown.com:7777/search/" scrolling="no" sandbox="allow-same-origin allow-scripts allow-forms"> </iframe> </div>
+      home = <div>  <iframe src="https://localhost:7777/crud/" scrolling="no" sandbox="allow-same-origin allow-scripts allow-forms" > </iframe> <br/> <br/><br/> <br/><br/> <br/> <iframe src="https://localhost:7777/search/" scrolling="no" sandbox="allow-same-origin allow-scripts allow-forms"> </iframe> </div>
       }
 
     return (<div>
