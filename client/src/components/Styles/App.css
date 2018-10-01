@@ -1,0 +1,15 @@
+.sidenav {
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #361B04;
+  font-family: 'Quicksand', sans-serif;
+}
+
+
+a {
+    color: #d0d9e1;
+    text-decoration: none;
+
+}
+
+
