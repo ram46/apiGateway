@@ -35,6 +35,8 @@ class Login extends React.Component {
 
     var data = {"profile": userInfo};
 
+    this.props.handleUserInfo(userInfo);
+
      fetch('/login', {
       method: 'POST', // or 'PUT'
       body: JSON.stringify(data), // data can be `string` or {object}!

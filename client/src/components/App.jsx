@@ -12,10 +12,12 @@ class App extends React.Component {
     super(props);
     this.handleLogin = this.handleLogin.bind(this);
     this.handleLogoutClick = this.handleLogoutClick.bind(this);
+    this.handleUserInfo = this.handleUserInfo.bind(this);
 
     this.state = {
       services: [],
-      isLoggedIn: false
+      isLoggedIn: false,
+      userInfo: {}
     }
   }
 
@@ -46,21 +48,35 @@ class App extends React.Component {
       })
   }
 
+
+  handleUserInfo(userInfo) {
+    console.log('insideeee handleUserInfo', userInfo);
+    this.setState({
+      userInfo: userInfo
+    })
+  }
+
+
   // http://i67.tinypic.com/35mkxhy.png
   // http://i67.tinypic.com/dwz149.png
 
   render () {
      var button;
+     var profile;
      var home;
      var sidenavbar;
+
      var logo = <img src="http://i68.tinypic.com/2cxtj60.png" />
     if (!this.state.isLoggedIn) {
-      button = <Login handleLogin={this.handleLogin}/>
+      button = <Login handleLogin={this.handleLogin} handleUserInfo={this.handleUserInfo} />
     }
 
 
     if (this.state.isLoggedIn) {
       button = <Logout handleLogoutClick={this.handleLogoutClick} />
+
+      profile = <div> Welcome, {this.state.userInfo['name']}! </div>
+
       home = <div>  <iframe src="https://localhost:7777/crud/" scrolling="no" sandbox="allow-same-origin allow-scripts allow-forms" > </iframe> <br/> <br/><br/> <br/><br/> <br/> <iframe src="https://localhost:7777/search/" scrolling="no" sandbox="allow-same-origin allow-scripts allow-forms"> </iframe> </div>
       sidenavbar = <div className="sidenav `${sidenav}`"><Link to='/home'> home </Link>  <Link to='/versions'> versions </Link>   <Link to='/read'> stats </Link>  <Link to='/update'> update </Link> </div>
       }
@@ -69,6 +85,8 @@ class App extends React.Component {
       <div id="content">
         {logo}
         {button}
+        <br/>
+        {profile}
         <br/>
         {sidenavbar}
         {home}
