@@ -29,7 +29,16 @@ class Logout extends React.Component {
   }
 
   render() {
-    return <button onClick={this.logout}> logout </button>
+
+    const buttonStyle = {
+      background: '#996633',
+      fontSize: '15px',
+      color: 'white',
+      padding: '14px 40px',
+      float: 'right'
+    };
+
+    return <button onClick={this.logout} style={buttonStyle}> logout </button>
   }
 }
 
