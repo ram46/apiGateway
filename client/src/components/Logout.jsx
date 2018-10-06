@@ -32,13 +32,13 @@ class Logout extends React.Component {
 
     const buttonStyle = {
       background: '#996633',
-      fontSize: '15px',
+      fontSize: '12px',
       color: 'white',
-      padding: '14px 40px',
+      padding: '11px 40px',
       float: 'right'
     };
 
-    return <button onClick={this.logout} style={buttonStyle}> logout </button>
+    return <button onClick={this.logout} style={buttonStyle}> Sign out </button>
   }
 }
 
