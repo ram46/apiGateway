@@ -7,6 +7,7 @@ import Logout from './Logout.jsx';
 import {sidenav} from './Styles/App.css';
 import {Link} from 'react-router-dom';
 
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -67,6 +68,8 @@ class App extends React.Component {
      var sidenavbar;
 
      var logo = <img src="http://i68.tinypic.com/2cxtj60.png" />
+     // var logo = <img src="https://localhost:7777/brownlogo.png" height="200" width="400"/>
+
     if (!this.state.isLoggedIn) {
       button = <Login handleLogin={this.handleLogin} handleUserInfo={this.handleUserInfo} />
     }
@@ -78,7 +81,7 @@ class App extends React.Component {
       profile = <div> Welcome, {this.state.userInfo['name']}! </div>
 
       home = <div>  <iframe src="https://localhost:7777/crud/" scrolling="no" sandbox="allow-same-origin allow-scripts allow-forms" > </iframe> <br/> <br/><br/> <br/><br/> <br/> <iframe src="https://localhost:7777/search/" scrolling="no" sandbox="allow-same-origin allow-scripts allow-forms"> </iframe> </div>
-      sidenavbar = <div className="sidenav `${sidenav}`"><Link to='/home'> home </Link>  <Link to='/versions'> versions </Link>   <Link to='/read'> stats </Link>  <Link to='/update'> update </Link> </div>
+      sidenavbar = <div className="sidenav `${sidenav}`"><Link to='/home'> Home </Link>  <Link to='/versions'> Versions </Link>  <Link to='/stats'> Stats </Link>  <Link to='/search'> Search </Link> <Link to='/stats'> Stats </Link>  <Link to='/crud'> CRUD </Link> </div>
       }
 
     return (<div>
