@@ -68,7 +68,6 @@ class App extends React.Component {
      var sidenavbar;
 
      // var logo = <img src="http://i68.tinypic.com/2cxtj60.png" />
-     var logo = <img src="https://localhost:7777/brownlogo.png" height="200" width="400"/>
 
     if (!this.state.isLoggedIn) {
       button = <Login handleLogin={this.handleLogin} handleUserInfo={this.handleUserInfo} />
@@ -76,6 +75,9 @@ class App extends React.Component {
 
 
     if (this.state.isLoggedIn) {
+
+      var logo = <img src="https://localhost:7777/brownlogo.png" height="200" width="400"/>
+
       button = <Logout handleLogoutClick={this.handleLogoutClick} />
 
       profile = <div> Welcome, {this.state.userInfo['name']}! </div>
@@ -90,7 +92,15 @@ class App extends React.Component {
 
       </div>)
 
-      sidenavbar = <div className="sidenav `${sidenav}`"><Link to='/home'> Home </Link>  <Link to='/versions'> Versions </Link>  <Link to='/stats'> Stats </Link>  <Link to='/search'> Search </Link> <Link to='/stats'> Stats </Link>  <Link to='/crud'> CRUD </Link> </div>
+      sidenavbar = (
+        <div className="sidenav `${sidenav}`">
+          <Link to='/home'> Home </Link>
+          <Link to='/crud'> CRUD </Link>
+          <Link to='/search'> Search </Link>
+          <Link to='/versions'> Analyze </Link>
+          <Link to='/stats'> Visualize </Link>
+        </div>
+      )
     }
 
     return (<div>
