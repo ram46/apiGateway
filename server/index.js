@@ -49,8 +49,8 @@ app.use(session({
 }))
 
 
-app.get('/monitor', monitor);
-app.get('/getServiceAddressesByPort', getServiceAddressesByPort);
+// app.get('/monitor', monitor);
+// app.get('/getServiceAddressesByPort', getServiceAddressesByPort);
 app.post('/login', login);
 app.get('/logout', logout)
 
