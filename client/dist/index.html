@@ -10,8 +10,16 @@
  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 </head>
 <body>
+  <script>
+    if('serviceWorker' in navigator) {
+      navigator.serviceWorker
+       .register('/sw.js')
+       .then(function() { console.log("Service Worker Registered"); });
+    }
+    </script>
 
   <div id='app'></div>
+  <script type="text/javascript" src="index.js"></script>
   <script type="text/javascript" src="bundle.js"></script>
 </body>
 </html>
