@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// import Frame from 'react-frame-component';
-
 
 function Crud(props) {
   return (
