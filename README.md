@@ -53,7 +53,19 @@ Use docker-compose stop to stop the processess and verify
 netstat -an | grep LISTEN
 
 ```
+#### Running Chrome for Self-Signed Prgressive WebApp
 
+Due to self signed cert the pwa would not fetch. This is why we run Chrome in as
+```
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --user-data-dir=/Users/<username>/Downloads/deleteme --ignore-certificate-errors --unsafely-treat-insecure-origin-as-secure=https://localhost:7777/
+
+```
+
+## Running Google lighthouse
+   ```
+   npm install lighthouse --dev
+  ./node_modules/lighthouse/lighthouse-cli/index.js  <url> --view
+  ```
 
 If you made any code changes in any service such as in App.jsx of crud service, you need to build the docker image again.
 
@@ -115,7 +127,7 @@ docker image rm -f demo  --> remove the image
 - 7: Copy the token into docker-compose.yml and bring up all other instances
 
 ```
-$ cat ../prep.sh 
+$ cat ../prep.sh
 # manual
 # cp brown/gateway_db.env.example brown/gateway_db.env //fix
 # cp brown/crud_db.env.example brown/crud_db.env //fix
