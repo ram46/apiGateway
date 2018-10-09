@@ -98,6 +98,7 @@ class App extends React.Component {
           <Link to='/search'> Search </Link>
           <Link to='/versions'> Analyze </Link>
           <Link to='/stats'> Visualize </Link>
+           <Link to='/email'> Subsribe </Link>
         </div>
       )
     }
