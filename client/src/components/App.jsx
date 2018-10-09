@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
+import {Link} from 'react-router-dom';
+
 import Login from './Login.jsx';
 import Logout from './Logout.jsx';
-
 import {sidenav} from './Styles/App.css';
-import {Link} from 'react-router-dom';
+import {Crud, Search, Email} from './Services.jsx';
 
 
 class App extends React.Component {
@@ -49,38 +50,35 @@ class App extends React.Component {
      var profile;
      var home;
      var sidenavbar;
+     var logo;
+     var subscribe;
 
     if (!this.state.isLoggedIn) {
       button = <Login handleLogin={this.handleLogin} handleUserInfo={this.handleUserInfo} />
     }
 
-
     if (this.state.isLoggedIn) {
 
-      var logo = <img src="https://localhost:7777/brownlogo.png" height="200" width="400"/>
-
+      logo = <img src="https://localhost:7777/brownlogo.png" height="200" width="400"/>
       button = <Logout handleLogoutClick={this.handleLogoutClick} />
-
       profile = <div> Welcome, {this.state.userInfo['name']}! </div>
+      subscribe = <Email />
 
-      home = (<div>
-
-        <iframe src="https://localhost:7777/crud/" scrolling="no" sandbox="allow-same-origin allow-scripts allow-forms" > </iframe>
-
-        <br/> <br/><br/> <br/><br/> <br/>
-
-        <iframe src="https://localhost:7777/search/" scrolling="no" sandbox="allow-same-origin allow-scripts allow-forms"> </iframe>
-
-      </div>)
+      home = (
+        <div>
+          <Crud />
+          <br/> <br/><br/> <br/><br/> <br/>
+          <Search />
+        </div>
+      )
 
       sidenavbar = (
         <div className="sidenav `${sidenav}`">
           <Link to='/home'> Home </Link>
           <Link to='/crud'> CRUD </Link>
           <Link to='/search'> Search </Link>
-          <Link to='/versions'> Analyze </Link>
-          <Link to='/stats'> Visualize </Link>
-           <Link to='/email'> Subsribe </Link>
+          <Link to='/timeline'> Visualize </Link>
+          <Link to='/email'> Subscribe </Link>
         </div>
       )
     }
@@ -89,6 +87,7 @@ class App extends React.Component {
       <div id="content">
         {logo}
         {button}
+        {subscribe}
         <br/>
         {profile}
         <br/>

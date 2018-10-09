@@ -5,6 +5,7 @@ body, html
     overflow: auto;
     height: auto;
     background-color: black;
+    color: #d0d9e1;
   }
 
  #content

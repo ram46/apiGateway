@@ -30,8 +30,8 @@ try {
 
 const SubscribedUser = sequelize.define('subscribed_user', {
   user: Sequelize.STRING,
-  subscription_email: Sequelize.STRING,
-  subscription_phone: Sequelize.STRING
+  email: Sequelize.STRING,
+  phone: Sequelize.STRING
 });
 
 
