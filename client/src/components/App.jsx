@@ -23,19 +23,6 @@ class App extends React.Component {
   }
 
 
-  componentDidMount() {
-    $.ajax({
-      url: '/monitor',
-      success: (data) => {
-        this.setState({
-          services: JSON.parse(data)
-        })
-      },
-      error: (err) => {
-        console.log('err', err);
-      }
-    });
-  }
 
   handleLogin() {
       this.setState({
@@ -57,16 +44,11 @@ class App extends React.Component {
   }
 
 
-  // http://i67.tinypic.com/35mkxhy.png
-  // http://i67.tinypic.com/dwz149.png
-
   render () {
      var button;
      var profile;
      var home;
      var sidenavbar;
-
-     // var logo = <img src="http://i68.tinypic.com/2cxtj60.png" />
 
     if (!this.state.isLoggedIn) {
       button = <Login handleLogin={this.handleLogin} handleUserInfo={this.handleUserInfo} />
