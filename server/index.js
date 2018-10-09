@@ -4,6 +4,7 @@ var request = require('request')
 var mysql = require('mysql');
 var session = require('express-session');
 var MySQLStore = require('express-mysql-session')(session);
+var dbUtils = require('../database-mysql/utils.js')
 
 var session = require('express-session')
 
@@ -49,8 +50,7 @@ app.use(session({
 }))
 
 
-// app.get('/monitor', monitor);
-// app.get('/getServiceAddressesByPort', getServiceAddressesByPort);
+
 app.post('/login', login);
 app.get('/logout', logout)
 
@@ -58,29 +58,6 @@ app.get('/logout', logout)
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
   API Route Functions
 + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
-
-// function monitor(req,res) {
-//   request('http://localhost:9001/getMicroservices', (error, response, body) => {
-//     if (error) res.send('Error while getting microservices')
-//     else res.send(body)
-//   })
-// }
-
-
-// function getServiceAddressesByPort(req, res) {
-//     request('http://localhost:9001/getMicroservices', (error, response, body) => {
-//     if (error) res.send('Error while getting microservices')
-//     if(body) {
-//         var grouped_by_port = _.groupBy(JSON.parse(body), 'port')
-//         console.log(grouped_by_port)
-//         res.send(grouped_by_port)
-//     }
-//   })
-// }
-
-
-// function restrict() {
-// }
 
 
 const CLIENT_ID = '15484339292-sl85fv09m51i4q69ecfgtu392266fm4o.apps.googleusercontent.com'

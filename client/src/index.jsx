@@ -10,8 +10,7 @@ ReactDOM.render(
       <Route path="/email" component={Email} />
       <Route path="/search" component={Search} />
       <Route path="/crud" component={Crud} />
-      <Route path="/versions" component={App} />
-      <Route path="/stats" component={App} />
+      <Route path="/timeline" component={App} />
       <Route path="/home" component={App} />
       <Route path="/" component={App} />
     </Switch>

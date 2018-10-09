@@ -24,19 +24,6 @@ class App extends React.Component {
   }
 
 
-  componentDidMount() {
-    $.ajax({
-      url: '/monitor',
-      success: (data) => {
-        this.setState({
-          services: JSON.parse(data)
-        })
-      },
-      error: (err) => {
-        console.log('err', err);
-      }
-    });
-  }
 
   handleLogin() {
       this.setState({
@@ -90,9 +77,8 @@ class App extends React.Component {
           <Link to='/home'> Home </Link>
           <Link to='/crud'> CRUD </Link>
           <Link to='/search'> Search </Link>
-          <Link to='/versions'> Analyze </Link>
-          <Link to='/stats'> Visualize </Link>
-           <Link to='/email'> Subsribe </Link>
+          <Link to='/timeline'> Visualize </Link>
+          <Link to='/email'> Subscribe </Link>
         </div>
       )
     }
