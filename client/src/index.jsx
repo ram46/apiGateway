@@ -2,11 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom';
 import App from './components/App.jsx'
 import {Route, BrowserRouter, Switch} from 'react-router-dom'
-import {Crud, Search} from './components/Services.jsx'
+import {Crud, Search, Email} from './components/Services.jsx'
 
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
+      <Route path="/email" component={Email} />
       <Route path="/search" component={Search} />
       <Route path="/crud" component={Crud} />
       <Route path="/versions" component={App} />

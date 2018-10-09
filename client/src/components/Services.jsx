@@ -16,16 +16,23 @@ function Search(props) {
 }
 
 
+function Email(props) {
+  return (
+    <iframe src="https://localhost:7777/email"  scrolling="no" sandbox="allow-same-origin allow-scripts allow-forms"> </iframe>
+    )
+}
+
 function Services(props) {
   return null;
 }
 
-
+// the routing for /crud, /email, /search are defined in nginx conf
 
 export default Services
 
 export {
   Crud,
   Search,
+  Email
 }
 
