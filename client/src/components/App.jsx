@@ -51,7 +51,6 @@ class App extends React.Component {
 
 
   handleUserInfo(userInfo) {
-    console.log('insideeee handleUserInfo', userInfo);
     this.setState({
       userInfo: userInfo
     })
