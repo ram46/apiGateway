@@ -73,8 +73,8 @@ function saveSubscriber(req, res) {
 
   console.log('^^^^^^^^^^^^^^^^^ Inside saveSubscriber ^^^^^^^^^^^^^')
 
-  var subscriberInfo = JSON.parse(req.body)
-  db.getGoogleSignInEmail(subscriber.sessionID, (err, googleSignInEmail) => {
+  var subscriberInfo = req.body;
+  db.getGoogleSignInEmail(subscriberInfo.sessionID, (err, googleSignInEmail) => {
 
       console.log('^^^^^^^^^^^^^^^^^ getGoogleSignInEmail. server ^^^^^^^^^^^^^')
 

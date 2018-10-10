@@ -9,9 +9,21 @@ module.exports = {
   getGoogleSignInEmail: function(sessionID, cb) {
     console.log('^^^^^^^^^^^^^^^^^ getGoogleSignInEmail. util ^^^^^^^^^^^^^')
 
-    sessions.find({where:{session_id: sessionID}}).then((result) => {
-      if (result) cb(null, result);
-      else cb('sessionID not found', null);
+    sessions.then( (sessionList) => {
+      if (sessionList.length > 0) {
+        sessionList.forEach((sessions) => {
+          sessions.forEach( (session) => {
+            if (session && session.session_id === sessionID) {
+              var data = JSON.parse(session.data);
+              cb(null, data.userid.email)
+            } else {
+              cb('session not found', null);
+            }
+          })
+        })
+      } else {
+        cb('session not found', null);
+      }
     })
   },
 
@@ -19,12 +31,14 @@ module.exports = {
 
   console.log('^^^^^^^^^^^^^^^^^ saveSubscriber. util ^^^^^^^^^^^^^')
 
+    if (subscriber && subscriber.googleemail) {
+      subscribers.create({
+        user: subscriber.googleemail,
+        email: subscriber.email,
+        phone: subscriber.phone,
+      })
+    }
 
-    subscribers.create({
-      user: subscriber.uname,
-      email: subscriber.email,
-      phone: subscriber.phone,
-    })
   },
 
 
