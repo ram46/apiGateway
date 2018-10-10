@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 import Login from './Login.jsx';
 import Logout from './Logout.jsx';
 import {sidenav} from './Styles/App.css';
-import {Crud, Search, Email} from './Services.jsx';
+import {Crud, Search} from './Services.jsx';
 
 
 class App extends React.Component {
@@ -62,7 +62,7 @@ class App extends React.Component {
       logo = <img src="https://localhost:7777/brownlogo.png" height="200" width="400"/>
       button = <Logout handleLogoutClick={this.handleLogoutClick} />
       profile = <div> Welcome, {this.state.userInfo['name']}! </div>
-      subscribe = <Email />
+
 
       home = (
         <div>
