@@ -46,7 +46,8 @@ app.use(session({
   secret: 'keyboard cat',
   store: sessionStore,
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  cookie: {httpOnly: false}
 }))
 
 
