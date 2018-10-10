@@ -59,6 +59,7 @@ app.post('/deleteFrmDB', deleteFrmDB);
 app.post('/updateEmail', updateEmail);
 app.post('/updatePhone', updatePhone);
 app.post('/deleteFrmDB', deleteFrmDB);
+app.post('/saveSubscriber', saveSubscriber);
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
   API Route Functions
 + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
@@ -66,12 +67,33 @@ app.post('/deleteFrmDB', deleteFrmDB);
 
 const CLIENT_ID = '15484339292-sl85fv09m51i4q69ecfgtu392266fm4o.apps.googleusercontent.com'
 
+
+function saveSubscriber(req, res) {
+
+
+  console.log('^^^^^^^^^^^^^^^^^ Inside saveSubscriber ^^^^^^^^^^^^^')
+
+  var subscriberInfo = req.body;
+  db.getGoogleSignInEmail(subscriberInfo.sessionID, (err, googleSignInEmail) => {
+
+      console.log('^^^^^^^^^^^^^^^^^ getGoogleSignInEmail. server ^^^^^^^^^^^^^')
+
+    subscriberInfo.googleemail = googleSignInEmail;
+    db.saveSubscriber(subscriberInfo, (err, result) => {
+
+            console.log('^^^^^^^^^^^^^^^^^ saveSubscriber. server ^^^^^^^^^^^^^')
+
+      console.log(result);
+    });
+  })
+
+
+}
+
+
 function login(req, res) {
-
   const token = req.body.profile.token.id_token;
-
   console.log('the token is', token)
-
   const {OAuth2Client} = require('google-auth-library');
   const client = new OAuth2Client(CLIENT_ID);
 

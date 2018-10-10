@@ -34,13 +34,16 @@ const Subscriber = sequelize.define('subscriber', {
   phone: {type:Sequelize.STRING, validate:{is: ["^[0-9]+$",'i']}}
 });
 
+const UserSession = sequelize.query('select * from sessions');
+
 
 sequelize.sync()
 
 
 module.exports = {
   sequelize: sequelize,
-  Subscriber: Subscriber
+  Subscriber: Subscriber,
+  UserSession: UserSession
 }
 
 
