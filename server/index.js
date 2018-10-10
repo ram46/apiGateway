@@ -4,7 +4,7 @@ var request = require('request')
 var mysql = require('mysql');
 var session = require('express-session');
 var MySQLStore = require('express-mysql-session')(session);
-var dbUtils = require('../database-mysql/utils.js')
+var db = require('../database-mysql/utils.js')
 
 var session = require('express-session')
 
@@ -52,9 +52,12 @@ app.use(session({
 
 
 app.post('/login', login);
-app.get('/logout', logout)
-
-
+app.get('/logout', logout);
+app.post('/addToDB', addToDB);
+app.post('/deleteFrmDB', deleteFrmDB);
+app.post('/updateEmail', updateEmail);
+app.post('/updatePhone', updatePhone);
+app.post('/deleteFrmDB', deleteFrmDB);
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
   API Route Functions
 + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
@@ -100,6 +103,42 @@ function login(req, res) {
 function logout(req, res) {
   req.session.destroy(function(err) {
     res.end('session destroyed')
+  })
+}
+
+
+function addToDB(req, res) {
+  console.log(req.body.subscriber)
+  db.add(req.body.subscriber, (err, resp) => {
+    var response = resp ? 'added to app db' : 'unable to add to db'
+    res.send(response)
+  })
+}
+
+
+
+function updateEmail(req, res) {
+  console.log(req.body.subscriber)
+  db.updateEmail(req.body.subscriber, (err, resp) => {
+    var response = resp ? 'updated Email' : 'unable to add to db'
+    res.send(response)
+  })
+}
+
+function updatePhone(req, res) {
+  console.log(req.body.subscriber)
+  db.updatePhone(req.body.subscriber, (err, resp) => {
+    var response = resp ? 'updated Phone ' : 'unable to add to db'
+    res.send(response)
+  })
+}
+
+
+function deleteFrmDB(req, res) {
+  console.log(req.body.subscriber)
+  db.delete(req.body.subscriber, (err, res) => {
+    var response = resp ? 'deleted from app db' : 'unable to add to db'
+    res.send(response)
   })
 }
 

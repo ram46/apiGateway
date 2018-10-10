@@ -28,10 +28,10 @@ try {
 
 
 
-const SubscribedUser = sequelize.define('subscribed_user', {
-  user: Sequelize.STRING,
+const Subscriber = sequelize.define('subscriber', {
+  user: {type: Sequelize.STRING, allowNull: false, unique: true},
   email: Sequelize.STRING,
-  phone: Sequelize.STRING
+  phone: {type:Sequelize.STRING, validate:{is: ["^[0-9]+$",'i']}}
 });
 
 
@@ -40,7 +40,7 @@ sequelize.sync()
 
 module.exports = {
   sequelize: sequelize,
-  SubscribedUser: SubscribedUser
+  Subscriber: Subscriber
 }
 
 
