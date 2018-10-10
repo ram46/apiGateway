@@ -33,7 +33,7 @@ module.exports = {
   },
 
   updatePhone: function(newPhone, userName, cb) {
-    db.Subscriber.update({ phone: newPhone }, {where: {user: userName}}).then(() => {
+    db.Subscriber.update({ phone: newPhone }, {where: {user: userName}}).then((resp) => {
         if (resp) cb(null, resp)
         else ('err in updating phone', null)
     })
