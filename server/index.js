@@ -54,41 +54,15 @@ app.use(session({
 
 app.post('/login', login);
 app.get('/logout', logout);
-app.post('/addToDB', addToDB);
-app.post('/deleteFrmDB', deleteFrmDB);
-app.post('/updateEmail', updateEmail);
-app.post('/updatePhone', updatePhone);
-app.post('/deleteFrmDB', deleteFrmDB);
 app.post('/saveSubscriber', saveSubscriber);
+app.post('/readSubscriber', readSubscriber);
+
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
   API Route Functions
 + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + */
 
 
 const CLIENT_ID = '15484339292-sl85fv09m51i4q69ecfgtu392266fm4o.apps.googleusercontent.com'
-
-
-function saveSubscriber(req, res) {
-
-
-  console.log('^^^^^^^^^^^^^^^^^ Inside saveSubscriber ^^^^^^^^^^^^^')
-
-  var subscriberInfo = req.body;
-  db.getGoogleSignInEmail(subscriberInfo.sessionID, (err, googleSignInEmail) => {
-
-      console.log('^^^^^^^^^^^^^^^^^ getGoogleSignInEmail. server ^^^^^^^^^^^^^')
-
-    subscriberInfo.googleemail = googleSignInEmail;
-    db.saveSubscriber(subscriberInfo, (err, result) => {
-
-            console.log('^^^^^^^^^^^^^^^^^ saveSubscriber. server ^^^^^^^^^^^^^')
-
-      console.log(result);
-    });
-  })
-
-
-}
 
 
 function login(req, res) {
@@ -130,43 +104,64 @@ function logout(req, res) {
 }
 
 
-function addToDB(req, res) {
-  console.log(req.body.subscriber)
-  db.add(req.body.subscriber, (err, resp) => {
-    var response = resp ? 'added to app db' : 'unable to add to db'
-    res.send(response)
+
+
+function saveSubscriber(req, res) {
+
+  console.log('^^^^^^^^^^^^^^^^^ Inside saveSubscriber ^^^^^^^^^^^^^')
+
+  var subscriberInfo = req.body;
+  console.log("^^^^^^ req.body is *******")
+  console.log(req.body)
+  if (!subscriberInfo.sessionID)
+    res.end('the post data is missing session ')
+  else if (!subscriberInfo.email && !subscriberInfo.phone) {
+    res.end('the post data has neither phone nor email ')
+  } else if ( (subscriberInfo.email || subscriberInfo.phone) && subscriberInfo.sessionID) {
+    db.getGoogleSignInEmail(subscriberInfo.sessionID, (err, googleSignInEmail) => {
+      console.log('^^^^^^^^^^^^^^^^^ getGoogleSignInEmail. server ^^^^^^^^^^^^^')
+      if (err) res.end(err)
+      else {
+        subscriberInfo.user = googleSignInEmail;
+        console.log('found googleSignInEmail, augmented subscriber is')
+        console.log(subscriberInfo)
+        db.saveSubscriber(subscriberInfo, (err, result) => {
+          console.log('^^^^^^^^^^^^^^^^^  calling save subsctiber^^^^^^^^^^^^^')
+          if (err) res.end(err)
+          if (result) res.end(result)
+        })
+      }
+    })
+  }
+}
+
+
+function readSubscriber(req, res) {
+  console.log('++++++++++++++ Inside readSubscriber +++++++++++++')
+  var sessionID = req.body.sessionID
+  console.log('session ID IS::::: Inside readSubscriber +++++++++++++')
+  console.log(sessionID)
+
+  db.readSubscriber(sessionID, (result) => {
+    // means not subscriber so save it
+
+    console.log('*********** PORBLEM 2 ********')
+    console.log(result)
+
+    if (result === 'user_id found in subscribers table') res.end('yes')
+    if (result === 'user_id not found in subscribers table' ) res.end('no')
   })
 }
 
 
 
-function updateEmail(req, res) {
-  console.log(req.body.subscriber)
-  db.updateEmail(req.body.subscriber, (err, resp) => {
-    var response = resp ? 'updated Email' : 'unable to add to db'
-    res.send(response)
-  })
-}
-
-function updatePhone(req, res) {
-  console.log(req.body.subscriber)
-  db.updatePhone(req.body.subscriber, (err, resp) => {
-    var response = resp ? 'updated Phone ' : 'unable to add to db'
-    res.send(response)
-  })
-}
-
-
-function deleteFrmDB(req, res) {
-  console.log(req.body.subscriber)
-  db.delete(req.body.subscriber, (err, res) => {
-    var response = resp ? 'deleted from app db' : 'unable to add to db'
-    res.send(response)
-  })
-}
 
 var port = process.env.PORT || 9000;
 
 app.listen(port, function() {
   console.log(`listening on port ${port}`);
 });
+
+
+
+

@@ -31,10 +31,10 @@ try {
 const Subscriber = sequelize.define('subscriber', {
   user: {type: Sequelize.STRING, allowNull: false, unique: true},
   email: Sequelize.STRING,
-  phone: {type:Sequelize.STRING, validate:{is: ["^[0-9]+$",'i']}}
+  phone: {type:Sequelize.STRING}
+  // phone: {type:Sequelize.STRING, validate:{is: ["^[0-9]+$",'i']}}
 });
 
-const UserSession = sequelize.query('select * from sessions');
 
 
 sequelize.sync()
@@ -43,7 +43,6 @@ sequelize.sync()
 module.exports = {
   sequelize: sequelize,
   Subscriber: Subscriber,
-  UserSession: UserSession
 }
 
 
