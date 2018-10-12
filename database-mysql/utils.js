@@ -48,7 +48,7 @@ module.exports = {
       subscribers.find({where: {user: userid_email}}).then((resp) => {
         console.log('*********PROBLEM*****')
         console.log(resp)
-        if (resp) cb('user_id found in subscribers table')
+        if (resp) cb(resp)
         else if (!resp) cb('user_id not found in subscribers table')
       })
     })

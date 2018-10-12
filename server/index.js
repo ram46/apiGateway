@@ -107,26 +107,17 @@ function logout(req, res) {
 
 
 function saveSubscriber(req, res) {
-
-  console.log('^^^^^^^^^^^^^^^^^ Inside saveSubscriber ^^^^^^^^^^^^^')
-
   var subscriberInfo = req.body;
-  console.log("^^^^^^ req.body is *******")
-  console.log(req.body)
   if (!subscriberInfo.sessionID)
     res.end('the post data is missing session ')
   else if (!subscriberInfo.email && !subscriberInfo.phone) {
     res.end('the post data has neither phone nor email ')
   } else if ( (subscriberInfo.email || subscriberInfo.phone) && subscriberInfo.sessionID) {
     db.getGoogleSignInEmail(subscriberInfo.sessionID, (err, googleSignInEmail) => {
-      console.log('^^^^^^^^^^^^^^^^^ getGoogleSignInEmail. server ^^^^^^^^^^^^^')
       if (err) res.end(err)
       else {
         subscriberInfo.user = googleSignInEmail;
-        console.log('found googleSignInEmail, augmented subscriber is')
-        console.log(subscriberInfo)
         db.saveSubscriber(subscriberInfo, (err, result) => {
-          console.log('^^^^^^^^^^^^^^^^^  calling save subsctiber^^^^^^^^^^^^^')
           if (err) res.end(err)
           if (result) res.end(result)
         })
@@ -137,19 +128,11 @@ function saveSubscriber(req, res) {
 
 
 function readSubscriber(req, res) {
-  console.log('++++++++++++++ Inside readSubscriber +++++++++++++')
   var sessionID = req.body.sessionID
-  console.log('session ID IS::::: Inside readSubscriber +++++++++++++')
-  console.log(sessionID)
-
   db.readSubscriber(sessionID, (result) => {
-    // means not subscriber so save it
-
-    console.log('*********** PORBLEM 2 ********')
-    console.log(result)
-
-    if (result === 'user_id found in subscribers table') res.end('yes')
-    if (result === 'user_id not found in subscribers table' ) res.end('no')
+    var existingSubscription = JSON.stringify({email: result.dataValues.email, phone:result.dataValues.phone})
+    if (result !== 'user_id not found in subscribers table') res.end(existingSubscription)
+    if (result === 'user_id not found in subscribers table' ) res.end('not found')
   })
 }
 
