@@ -61,7 +61,7 @@ class App extends React.Component {
 
       logo = <img src="https://localhost:7777/brownlogo.png" height="200" width="400"/>
       button = <Logout handleLogoutClick={this.handleLogoutClick} />
-      profile = <div> Welcome, {this.state.userInfo['name']}! </div>
+      profile = <div> <p> Welcome, {this.state.userInfo['name']}! </p> </div>
 
 
       home = (
