@@ -8,7 +8,7 @@ try {
 
 catch(e) {
   var config = {
-    HOST     : 'gatewaydb-node',
+    HOST     : process.env.MYSQL_HOST,
     USER    : process.env.MYSQL_USER,
     PASSWORD : process.env.MYSQL_ROOT_PASSWORD,
     DATABASE : process.env.MYSQL_DATABASE,

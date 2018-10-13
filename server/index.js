@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 
 var hour = 3600000
 var options = {
-    host: 'gatewaydb',
+    host:  process.env.MYSQL_HOST,
     port: 3306,
     user: process.env.MYSQL_USER,
     password: process.env.MYSQL_PASSWORD,
