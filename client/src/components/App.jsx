@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import {Link} from 'react-router-dom';
-
+// import {Link} from 'react-router-dom';
 import Login from './Login.jsx';
 import Logout from './Logout.jsx';
 import {sidenav} from './Styles/App.css';
-import {Crud, Search} from './Services.jsx';
+import {Crud, Search, Email} from './Services.jsx';
+import {Route, Switch, PropsRoute, Link} from 'react-router-dom'
+
 
 
 class App extends React.Component {
@@ -64,17 +65,17 @@ class App extends React.Component {
       profile = <div> <p> Welcome, {this.state.userInfo['name']}! </p> </div>
 
 
-      home = (
-        <div>
-          <Crud />
-          <br/> <br/><br/> <br/><br/> <br/>
-          <Search />
-        </div>
-      )
+      // home = (
+      //   <div>
+      //     <Crud />
+      //     <br/> <br/><br/> <br/><br/> <br/>
+      //     <Search />
+      //   </div>
+      // )
 
       sidenavbar = (
         <div className="sidenav `${sidenav}`">
-          <Link to='/home'> Home </Link>
+          <Link to='/'> Home </Link>
           <Link to='/crud'> CRUD </Link>
           <Link to='/search'> Search </Link>
           <Link to='/timeline'> Visualize </Link>
@@ -83,18 +84,38 @@ class App extends React.Component {
       )
     }
 
-    return (<div>
-      <div id="content">
+    return (
+
+    <div>
         {logo}
         {button}
-        {subscribe}
         <br/>
         {profile}
         <br/>
         {sidenavbar}
-        {home}
-      </div>
-    </div>)
+        <br/>
+      <Switch>
+        <Route exact path='/' render={() => <h1> This is home</h1>} />
+        <Route path='/crud' component={Crud} />
+        <Route path='/search' component={Search} />
+        <Route path='/email' component={Email} />
+      </Switch>
+    </div>
+      )
+
+    ///// if we want to open in different pages (see index.jsx too)
+    // return (<div>
+    //   <div id="content">
+    //     {logo}
+    //     {button}
+    //     {subscribe}
+    //     <br/>
+    //     {profile}
+    //     <br/>
+    //     {sidenavbar}
+    //     {home}
+    //   </div>
+    // </div>)
   }
 }
 
