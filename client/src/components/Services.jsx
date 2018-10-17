@@ -17,7 +17,7 @@ function Search(props) {
 
 function Timeline(props) {
   return (
-    <iframe src="https://localhost:7777/timeline"  scrolling="no" sandbox="allow-same-origin allow-scripts allow-forms"> </iframe>
+    <iframe src="https://localhost:7777/timeline/"  scrolling="no" sandbox="allow-same-origin allow-scripts allow-forms"> </iframe>
     )
 }
 
