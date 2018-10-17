@@ -5,7 +5,7 @@ import $ from 'jquery';
 import Login from './Login.jsx';
 import Logout from './Logout.jsx';
 import {sidenav} from './Styles/App.css';
-import {Crud, Search, Email} from './Services.jsx';
+import {Crud, Search, Email, Timeline} from './Services.jsx';
 import {Route, Switch, PropsRoute, Link} from 'react-router-dom'
 
 
@@ -99,6 +99,7 @@ class App extends React.Component {
         <Route path='/crud' component={Crud} />
         <Route path='/search' component={Search} />
         <Route path='/email' component={Email} />
+         <Route path='/timeline' component={Timeline} />
       </Switch>
     </div>
       )
