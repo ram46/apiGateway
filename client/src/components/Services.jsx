@@ -38,6 +38,7 @@ export default Services
 export {
   Crud,
   Search,
-  Email
+  Email,
+  Timeline
 }
 
