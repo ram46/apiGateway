@@ -2,9 +2,28 @@
 <html>
 <head>
   <title> Home </title>
+  <!-- /server points to the static dir defined by expressjs in index.js. It points to views folder -->
+  <link rel="stylesheet" type="text/css" href="/server/home.css">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 </head>
 <body>
   <h1> Hello World </h1>
-  <img src="/server/wheels.gif" height="200" width="400"/>
+  <img src="/server/version-logic.png" height="700" width="1100"/>
+
+
+
+  <p> Create </p>
+  <pre> {"caseName":"APT222", "ioc": "ylio.exe", "ioctype":"file"}  </pre>
+
+  <p> Read </p>
+  <pre> {"caseName": "APT222"} </pre>
+
+  <p> Modify </p>
+  <pre> {"caseName": "APT222", "fromValue": "ylio.exe", "toValue":"1.2.3.4", "iocType":"ip"} </pre>
+
+  <p> Delete </p>
+  <pre> {"caseName": "APT222", "iocToDelete": "1.2.3.4"} </pre>
+
+
 </body>
 </html>
