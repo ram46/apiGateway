@@ -27,6 +27,12 @@ function Email(props) {
     )
 }
 
+function Home(props) {
+  return (
+    <iframe src="https://localhost:7777/home"  scrolling="no" sandbox="allow-same-origin allow-scripts allow-forms"> </iframe>
+    )
+}
+
 function Services(props) {
   return null;
 }
@@ -39,6 +45,7 @@ export {
   Crud,
   Search,
   Email,
-  Timeline
+  Timeline,
+  Home
 }
 

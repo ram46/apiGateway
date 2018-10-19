@@ -13,6 +13,13 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
+app.set('views', __dirname + '/views');
+app.use('/server', express.static( __dirname + '/views'));
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+// app.set('view engine', 'ejs');
+
+// now we can use res.render to load up an ejs view file
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
   API Routes
@@ -56,6 +63,7 @@ app.post('/login', login);
 app.get('/logout', logout);
 app.post('/saveSubscriber', saveSubscriber);
 app.post('/readSubscriber', readSubscriber);
+app.get('/home', home);
 
 /* + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
   API Route Functions
@@ -63,6 +71,10 @@ app.post('/readSubscriber', readSubscriber);
 
 
 const CLIENT_ID = '15484339292-sl85fv09m51i4q69ecfgtu392266fm4o.apps.googleusercontent.com'
+
+function home(req, res) {
+  res.render('home.html');
+}
 
 
 function login(req, res) {
@@ -135,6 +147,12 @@ function readSubscriber(req, res) {
     if (result === 'user_id not found in subscribers table' ) res.end('not found')
   })
 }
+
+
+
+
+
+
 
 
 
