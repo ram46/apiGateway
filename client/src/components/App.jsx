@@ -5,7 +5,7 @@ import $ from 'jquery';
 import Login from './Login.jsx';
 import Logout from './Logout.jsx';
 import {sidenav} from './Styles/App.css';
-import {Crud, Search, Email, Timeline} from './Services.jsx';
+import {Crud, Search, Email, Timeline, Home} from './Services.jsx';
 import {Route, Switch, PropsRoute, Link} from 'react-router-dom'
 
 
@@ -95,11 +95,12 @@ class App extends React.Component {
         {sidenavbar}
         <br/>
       <Switch>
-        <Route exact path='/' render={() => <h1> This is home</h1>} />
+        <Route exact path='/' render={Home} />
         <Route path='/crud' component={Crud} />
         <Route path='/search' component={Search} />
         <Route path='/email' component={Email} />
-         <Route path='/timeline' component={Timeline} />
+        <Route path='/timeline' component={Timeline} />
+
       </Switch>
     </div>
       )
