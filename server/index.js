@@ -14,6 +14,9 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 app.set('views', __dirname + '/views');
+
+// Creating a second new logical route (or url) that will be used when referring any file inside views dir on the server side. If not set, it will go to '/' as instructed on the express static line app.use(express.static(__dirname + '/../client/dist'));
+
 app.use('/server', express.static( __dirname + '/views'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
