@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 function Crud(props) {
   return (
       // if hosting over domain, replace localhost with mydomain.com
-      <iframe src="https://localhost:7777/crud/" scrolling="no" sandbox="allow-same-origin allow-scripts allow-forms"></iframe>
+      <iframe src="https://localhost:7777/crud/" sandbox="allow-same-origin allow-scripts allow-forms"></iframe>
     )
 }
 
