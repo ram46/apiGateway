@@ -4,6 +4,7 @@ body {
   font-family: 'Quicksand', sans-serif;
   /*background: #381E05*/
   background: #000000;
+  font-size: 20px;
 }
 
 #author {
@@ -14,11 +15,16 @@ body {
   font-size: 26px;
 }
 
-/*p {
+ul {
+  list-style: none;
+}
+
+ul li::before {
+  content: "\2022";
   color: #d0d9e1;
-}*/
-
-
-/*.text-content {
-  text-align: center;
-}*/
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+  font-size: 170%;
+}

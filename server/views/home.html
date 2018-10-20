@@ -8,40 +8,87 @@
   </head>
 
   <body>
-    <img src="/server/front.png" height="750" width="1100"/>
+    <img src="/server/front.png" height="750" width="1100"/> <br/>
     <p id="author"> Nasa Quba & Kausar Khizra  </p>
-    <hr> <p id="definition"> An IOC (Indicator Of Compromise) management, versioning, analysis and search automation application </p> <hr>
+    <br/> <br/>  <br/> <br/> <hr> <p id="definition"> An IOC (Indicator Of Compromise) management, versioning, analysis and search automation application </p> <hr>
+
 
     <h1> Tech Stack </h1>
+
     <img src="/server/tech-stack-cicd.png" height="750" width="1100"/> <br><br><br>
+
     <img src="/server/tech-stack-be.png" height="750" width="1100"/> <br><br><br>
+
+
     <img src="/server/tech-stack-fe.png" height="750" width="1100"/> <br><br><br>
 
+
     <h1> Database Schema </h1>
+
     <img src="/server/db-schema.png" height="670" width="1100"/> <br><br><br>
+
 
     <h1> Architecture </h1>
     <img src="/server/design.png" height="670" width="1100"/> <br><br><br>
 
+
     <h1> Versioning logic </h1>
     <img src="/server/version-logic.png" height="700" width="1100"/>
 
-    <h2> Demo </h2>
+      <hr/>
+      <h2> Demo </h2>
 
-    <p> Create </p>
-    <pre> {"caseName":"APT222", "ioc": "ylio.exe", "ioctype":"file"}  </pre>
+      <p> Create </p>
+      <pre> {"caseName":"APT222", "ioc": "ylio.exe", "ioctype":"file"}  </pre>
 
-    <p> Read </p>
-    <pre> {"caseName": "APT222"} </pre>
+      <p> Read </p>
+      <pre> {"caseName": "APT222"} </pre>
 
-    <p> Modify </p>
-    <pre> {"caseName": "APT222", "fromValue": "ylio.exe", "toValue":"1.2.3.4", "iocType":"ip"} </pre>
+      <p> Modify </p>
+      <pre> {"caseName": "APT222", "fromValue": "ylio.exe", "toValue":"1.2.3.4", "iocType":"ip"} </pre>
 
-    <p> Delete </p>
-    <pre> {"caseName": "APT222", "iocToDelete": "1.2.3.4"} </pre>
+      <p> Delete </p>
+      <pre> {"caseName": "APT222", "iocToDelete": "1.2.3.4"} </pre>
 
+      <p> For PWA </p>
+      <pre> /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --user-data-dir=/Users/username/Downloads/deleteme/  </pre>
+      <pre>
+      --ignore-certificate-errors --unsafely-treat-insecure-origin-as-secure=https://ele-one-brown.com:7777/ </pre>
 
-    <p id="author"> Nasa Quba & Kausar Khizra  </p>
+      <br/> <hr/>
+
+      <br/> <br/> <br/> <br/><br/> <br/> <h1> Challenges </h1>
+      <ul>
+        <li> Dealing with submodules in github </li> <br/>
+        <li> Microservice UI composition </li> <br/>
+        <li> PWA in microservices </li> <br/>
+        <li> Nginx - Even a slash at the URI end matters! </li> <br/>
+        <li> Creating associations with sequelize and querying them </li> <br/>
+        <li> Keeping balance between coding and reading </li> <br/>
+      </ul> <br/> <br/><br/> <br/><br/> <br/>
+
+      <br/> <hr/>
+      <br/> <br/> <br/> <br/><br/> <br/> <h1> Lessons Learned </h1>
+        <ul>
+          <li> CI/CD!!! It is a BIG part of SDLC and needs time to do it right </li> <br/>
+          <li> Sometimes no matter how fast you want to go, things move with their own pace - i n c h  by i n c h, therefore, chill! </li> <br/>
+          <li> Docker cache!!! It can cause all sorts of weird behavior. Make sure you clean it time to time </li> <br/>
+          <li> Keeping boilerplates ready was helpful </li> <br/>
+        </ul> <br/> <br/><br/> <br/><br/> <br/>
+
+      <br/> <hr/>
+      <br/> <br/><br/> <br/><br/> <br/> <h1> Improvements </h1>
+        <ul>
+          <li> Encrypt communication between all microservices </li> <br/>
+          <li> Increase PWA coverage </li> <br/>
+          <li> Add more charts for analysis </li> <br/>
+          <li> Integrate more log source types to search the IOCs against (e.g Splunk, DB) </li> <br/>
+          <li> Build more robust CI/CD pipeline </li> <br/>
+        </ul> <br/> <br/><br/> <br/><br/> <br/>
+
+        <h1> Thank you! </h1>
+
+        <br/> <hr/>  <br/><br/> <br/>
 
   </body>
 </html>
