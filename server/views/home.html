@@ -1,26 +1,47 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title> Home </title>
-  <!-- /server points to the static dir defined by expressjs in index.js. It points to views folder -->
-  <link rel="stylesheet" type="text/css" href="/server/home.css">
-  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-</head>
-<body>
-  <img src="/server/version-logic.png" height="700" width="1100"/>
+  <head>
+    <title> Home </title>
+    <!-- /server points to the static dir defined by expressjs in index.js. It points to views folder -->
+    <link rel="stylesheet" type="text/css" href="/server/home.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+  </head>
 
-  <p> Create </p>
-  <pre> {"caseName":"APT222", "ioc": "ylio.exe", "ioctype":"file"}  </pre>
+  <body>
+    <img src="/server/front.png" height="750" width="1100"/>
+    <p id="author"> Nasa Quba & Kausar Khizra  </p>
+    <hr> <p id="definition"> An IOC (Indicator Of Compromise) management, versioning, analysis and search automation application </p> <hr>
 
-  <p> Read </p>
-  <pre> {"caseName": "APT222"} </pre>
+    <h1> Tech Stack </h1>
+    <img src="/server/tech-stack-cicd.png" height="750" width="1100"/> <br><br><br>
+    <img src="/server/tech-stack-be.png" height="750" width="1100"/> <br><br><br>
+    <img src="/server/tech-stack-fe.png" height="750" width="1100"/> <br><br><br>
 
-  <p> Modify </p>
-  <pre> {"caseName": "APT222", "fromValue": "ylio.exe", "toValue":"1.2.3.4", "iocType":"ip"} </pre>
+    <h1> Database Schema </h1>
+    <img src="/server/db-schema.png" height="670" width="1100"/> <br><br><br>
 
-  <p> Delete </p>
-  <pre> {"caseName": "APT222", "iocToDelete": "1.2.3.4"} </pre>
+    <h1> Architecture </h1>
+    <img src="/server/design.png" height="670" width="1100"/> <br><br><br>
+
+    <h1> Versioning logic </h1>
+    <img src="/server/version-logic.png" height="700" width="1100"/>
+
+    <h2> Demo </h2>
+
+    <p> Create </p>
+    <pre> {"caseName":"APT222", "ioc": "ylio.exe", "ioctype":"file"}  </pre>
+
+    <p> Read </p>
+    <pre> {"caseName": "APT222"} </pre>
+
+    <p> Modify </p>
+    <pre> {"caseName": "APT222", "fromValue": "ylio.exe", "toValue":"1.2.3.4", "iocType":"ip"} </pre>
+
+    <p> Delete </p>
+    <pre> {"caseName": "APT222", "iocToDelete": "1.2.3.4"} </pre>
 
 
-</body>
+    <p id="author"> Nasa Quba & Kausar Khizra  </p>
+
+  </body>
 </html>

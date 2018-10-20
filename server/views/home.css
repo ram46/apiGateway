@@ -1,5 +1,24 @@
 body {
   color: #d0d9e1;
+  text-align: center;
   font-family: 'Quicksand', sans-serif;
-  background: #381E05
+  /*background: #381E05*/
+  background: #000000;
 }
+
+#author {
+  float: right;
+}
+
+#definition {
+  font-size: 26px;
+}
+
+/*p {
+  color: #d0d9e1;
+}*/
+
+
+/*.text-content {
+  text-align: center;
+}*/
