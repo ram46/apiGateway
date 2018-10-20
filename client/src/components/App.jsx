@@ -60,6 +60,7 @@ class App extends React.Component {
 
     if (this.state.isLoggedIn) {
 
+      // if hosting over domain, replace localhost with mydomain.com
       logo = <img src="https://localhost:7777/brownlogo.png" height="200" width="400"/>
       button = <Logout handleLogoutClick={this.handleLogoutClick} />
       profile = <div> <p> Welcome, {this.state.userInfo['name']}! </p> </div>

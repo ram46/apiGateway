@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 
 function Crud(props) {
   return (
+      // if hosting over domain, replace localhost with mydomain.com
       <iframe src="https://localhost:7777/crud/" scrolling="no" sandbox="allow-same-origin allow-scripts allow-forms"></iframe>
     )
 }
@@ -11,24 +12,28 @@ function Crud(props) {
 
 function Search(props) {
   return (
+    // if hosting over domain, replace localhost with mydomain.com
       <iframe src="https://localhost:7777/search/" scrolling="no" sandbox="allow-same-origin allow-scripts allow-forms"> </iframe>
     )
 }
 
 function Timeline(props) {
   return (
+    // if hosting over domain, replace localhost with mydomain.com
     <iframe src="https://localhost:7777/timeline/"  scrolling="no" sandbox="allow-same-origin allow-scripts allow-forms"> </iframe>
     )
 }
 
 function Email(props) {
   return (
+    // if hosting over domain, replace localhost with mydomain.com
     <iframe src="https://localhost:7777/email"  scrolling="no" sandbox="allow-same-origin allow-scripts allow-forms"> </iframe>
     )
 }
 
 function Home(props) {
   return (
+    // if hosting over domain, replace localhost with mydomain.com
     <iframe src="https://localhost:7777/home"  sandbox="allow-same-origin allow-scripts allow-forms"> </iframe>
     )
 }
