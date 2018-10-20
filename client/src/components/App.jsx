@@ -76,7 +76,7 @@ class App extends React.Component {
 
       sidenavbar = (
         <div className="sidenav `${sidenav}`">
-          <Link to='/'> Home </Link>
+          <Link to='/home'> Home </Link>
           <Link to='/crud'> CRUD </Link>
           <Link to='/search'> Search </Link>
           <Link to='/timeline'> Visualize </Link>
@@ -101,7 +101,7 @@ class App extends React.Component {
         <Route path='/search' component={Search} />
         <Route path='/email' component={Email} />
         <Route path='/timeline' component={Timeline} />
-
+        <Route path='/home' render={Home} />
       </Switch>
     </div>
       )
